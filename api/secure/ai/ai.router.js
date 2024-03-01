@@ -39,4 +39,6 @@ router.delete(
   aiController.deleteSystemPrompt
 );
 
+router.post("/processShortcut", aiController.processShortcut);
+
 export default router;

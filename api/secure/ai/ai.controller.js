@@ -107,3 +107,16 @@ export const deleteSystemPrompt = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
+
+export const processShortcut = async (req, res) => {
+  try {
+    const { imageText, userPrompt } = req.body;
+
+    const response = await aiService.processShortcut(imageText, userPrompt);
+    console.log(response);
+    res.json(response);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send(err.message);
+  }
+};

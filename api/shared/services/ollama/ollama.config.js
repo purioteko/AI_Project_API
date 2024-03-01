@@ -1,6 +1,7 @@
 import config from "config";
 const ollamaURL = config.get("ollamaURL");
 
+// export const OLLAMA_MODEL = "mistral";
 export const OLLAMA_MODEL = "dolphin-mixtral:latest";
 export const OLLAMA_URL = ollamaURL;
 export const PROMPTS = {
@@ -39,7 +40,7 @@ export const MODEL_CONFIG = {
   model: OLLAMA_MODEL,
   numGpu: 64, // mixtral has 32 layers, load all to GPU
   mainGpu: 0, // use GPU #0
-  numCtx: CONTEXT_BASE * 8, // 4096 context
-  numKeep: -1,
-  numBatch: CONTEXT_BASE * 8, // 4096 batch size
+  numCtx: CONTEXT_BASE * 8, // 4096 contexts - no idea what that is
+  numKeep: -1, // guessing -1 means keep all
+  numBatch: CONTEXT_BASE * 8, // 4096 batch size - no idea what that is
 };

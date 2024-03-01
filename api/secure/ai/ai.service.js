@@ -1,4 +1,5 @@
 import SystemPrompt from "../../shared/models/SystemPrompt/SystemPrompt.js";
+import * as ollamaService from "../../shared/services/ollama/ollama.service.js";
 
 export const getSystemPrompts = async (userId) => {
   const systemPrompts = await SystemPrompt.find({ user: userId });
@@ -70,4 +71,9 @@ export const getSystemPrompt = async (systemPromptId, userId) => {
   });
 
   return systemPrompt;
+};
+
+export const processShortcut = async (imageText, userPrompt) => {
+  const response = await ollamaService.shortcutGenerate(userPrompt, imageText);
+  return response;
 };

@@ -266,3 +266,33 @@ export const analyzeFile = async (prompt, filePaths, streamFunction) => {
     throw err;
   }
 };
+
+export const shortcutGenerate = async (prompt, imageText) => {
+  try {
+    await handleOllamaUninitialized();
+
+    const messages = [
+      new SystemMessage(`You are a helpful AI assistant. A user has taken an image and extracted all visible text.
+      They are going to send the text to you and ask for a summary of the text. You should respond with a summary of the text.
+      You should also try to include what you think the image is of if possible.`),
+      new SystemMessage(`Here is the text from the image: ${imageText}`),
+    ];
+
+    const memory = new BufferMemory({
+      // @ts-ignore
+      chatHistory: new ChatMessageHistory(messages),
+    });
+
+    const chain = new ConversationChain({
+      llm: ollama,
+      memory: memory,
+    });
+
+    const fullResponse = await chain.call({ input: prompt });
+
+    return fullResponse;
+  } catch (err) {
+    console.error("[ollama.service][shortcutGenerate]", err.message);
+    throw err;
+  }
+};
