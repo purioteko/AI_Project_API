@@ -1,0 +1,36 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "PORT=9001 nodemon --inspect index.js --ignore ./uploads/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.0.15",
+    "@xenova/transformers": "^2.13.4",
+    "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.12",
+    "config": "^3.3.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "express-validator": "^7.0.1",
+    "hnswlib-node": "^1.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "langchain": "^0.1.0",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "nit": "^0.0.5",
+    "nodemon": "^3.0.2",
+    "pdf-parse": "^1.1.1",
+    "socket.io": "^4.7.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "type": "module"
+}

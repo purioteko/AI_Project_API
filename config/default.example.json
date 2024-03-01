@@ -1,0 +1,7 @@
+{
+  "mongoURI": "mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000",
+  "ollamaURL": "http://localhost:11434",
+  "jwtSecret": "YOUR_SECRET",
+  "tokenExperationTime": "86400000",
+  "PORT": "9000"
+}
